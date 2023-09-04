@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= title%> Blogs</title>
+  <link rel="shortcut icon" type="image/x-icon" href="icons8-b-48.png">
+  <%- include('partials/links')-%> 
+</head>
+<%- include('partials/aaheader'); -%>  
+
+<br><br>
+<div>
+  <div class="main text-center fs-2 m-0"><%-title%></div>
+<% if (blogs.length<1) { %>
+ <div class="div mx-5"> <p> No blogs available in <%=title  %>  :( Add one <a href="/newblog">here</a></p></div>
+  <%} else { %>
+    <% for(var i=0;i<blogs.length;i++) { %>
+      <div class="card my-4" style="width: 90%; margin-left:3% ; background-color:rgb(255, 255, 255) ;">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= blogs[i].name %>
+          </h5>
+          <h6 class="text-muted mt-4" style="font-weight: bold;">
+            <%= blogs[i].descriptioninshort%>
+          </h6>
+          <h6 class="text-muted mt-4" style="font-weight: bold;">Category :
+            <%= blogs[i].category%>
+          </h6>
+          <h6 class="text-muted mt-4 mb-0" style="font-weight: bold";>By :
+            <%= blogs[i].writer%>
+          </h6>
+        </div>
+         <button class="bn15"><a href="readmore/<%=blogs[i]._id%>">Full Blog</a></button> 
+      </div>
+  <%};%>
+    <% } %> 
+</div>
+</body>
+
+</html>

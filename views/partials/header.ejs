@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogzzz</title>
+  <link rel="shortcut icon" type="image/x-icon" href="icons8-b-48.png">
+  <%- include('links')-%> 
+</head>
+<body>
+  <nav id="hd">
+    <h1><a href="/">Blogzzz</a></h1>
+    <ul>
+      <% if (user) { %>
+        <li><a href="/logout">Log out</a></li>
+      <% } else { %>
+        <li><a href="/login">Log in</a></li>
+        <li><a href="/signup">Sign up</a></li>
+      <% } %>
+    </ul>
+  </nav>
+  <br><br>
+  

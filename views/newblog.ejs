@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Blog | Blogzzz</title>
+  <link rel="shortcut icon" type="image/x-icon" href="icons8-b-48.png">
+
+  <%- include('partials/links')-%> 
+
+    <style>
+      .textareastyle{
+        padding:10px 12px;
+        overflow:auto; 
+          resize: none; width:90%; outline: none;
+                        font-size: medium; border-radius: 10px; line-height: 24px;
+                        margin-left:3%;
+      }
+      *{
+        font-family: 'Quicksand', sans-serif;
+      }
+    </style>
+</head>
+<%- include('partials/aaheader')-%> 
+<br><br>
+<body style="background-color:rgb(255, 255, 255);">
+  <div class="container ">
+    <div class="main text-center fs-2 m-0">Create new blog</div>
+    <!-- form start -->
+
+    <div class="container">
+      <form action="/api/users" method="post" class="mx-1">
+        <%- include('partials/categories') -%> 
+        <div class="form-group mb-3">
+          <label for="name" class="form-label"></label>
+          <br>
+          <textarea required name="name" style="height:50px;text-transform:uppercase;" id="name" class=" textareastyle form-label"
+           placeholder="Title.. " maxlength = "30"></textarea>
+        </div>
+        <div class="form-group my-3">
+          <label for="descriptioninshort" class="form-label"></label>
+          <br>
+          <textarea required name="descriptioninshort" placeholder="SHORT DESCRIPTION.." 
+          
+          
+          
+          id="descriptioninshort "
+           class="textareastyle form-label" maxlength = "220" 
+           style="height: 
+                    100px;"></textarea>
+        </div>
+        <div class="form-group mb-3">
+          <label for="description" class="form-label"></label>
+          <br>
+          <textarea name="description" required id="description " placeholder="CONTENT.."
+           class="textareastyle form-label" style="height: 
+                    400px;"></textarea>
+        </div>
+        <!-- <div class="div">
+          <label for="image">Upload Image</label>
+          <input name="image" type="file">  
+        </div> -->
+        <input type = "hidden" name = "writer" value = "<%= user.email%>"/>
+
+          <input type = "hidden" name = "writerid" value = "<%= user.id%>"/>
+
+
+        <div class="form-group text-center my-5">
+          <button type="submit" class="btn btn-sm bn15 form-group">Publish blog</a></button>
+
+        </div>
+      </form>
+      <!-- Form ends here... -->
+    </div>
+  </div>
+</body>
+
+</html>
